@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    /* Add your css styles here */
+    .dropImage__Wrapper {
+        width: 500px;
+        height: 500px;
+        background-color: #ffff;
+        position: relative;
+    }
+
+    .link__wrapper {
+        padding-bottom: 15px;
+    }
+
+    .inputImage {
+        width: 100%;
+        height: 100%;
+        border: 1px solid #000;
+        position: relative;
+    }
+
+    .inputImage p {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+    }
+
+    .fileName {
+        width: 100%;
+        height: 100%;
+        background-color: red;
+        position: relative;
+        z-index: 999;
+        opacity: 0;
+    }
+
+    .dropImage__Wrapper {
+        width: 500px;
+        height: 500px;
+        border: 1px solid #000;
+    }
+
+    .preview-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    .uploaded-image {
+        width: 100%;
+        height: 100%;
+        background-color: #fff;
+    }
+</style>
+<body>
+    <div class="container">
+        <div class="link__wrapper">
+            <input class="url" type="text" />
+            <button class="submit-link">Get Image</button>
+        </div>
+        
+        <div class="dropImage__Wrapper">
+            <div class="inputImage">
+                <p>Drop Your Image here</p>
+                <input type="file" class="fileName" />
+            </div>
+            <div class="preview-image"></div>
+        </div>
+    </div>
+</body>
+</html>
+
+<script>
+    const createImgEl = (url) => {
+        applyToBox(`<img class="uploaded-image" src='${url}'>`)
+    }
+
+    const applyToBox = (el) => {
+        console.log(el)
+        const previewImageWrapper = document.querySelector('.preview-image')
+        previewImageWrapper.innerHTML = el
+    }
+
+    document.querySelector('.submit-link').addEventListener('click',()=>{
+        const url = document.querySelector('.url').value
+        createImgEl(url)
+    })
+
+    document.querySelector('.fileName').addEventListener('drop',(e)=>{
+        e.preventDefault()
+        const reader = new FileReader()
+        reader.readAsDataURL(e.dataTransfer.files[0])
+        reader.onloadend = () => {
+            console.log(reader.result)
+            createImgEl(reader.result)
+        }
+    })
+</script>
