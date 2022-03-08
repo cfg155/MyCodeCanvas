@@ -1,0 +1,130 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.side-panel__wrapper {
+  min-height: calc(100vh - 20px);
+  border-right: 2px solid #e2e2e2;
+  max-width: 300px;
+  padding: 0 2rem;
+}
+
+.icon__wrapper {
+  display: flex;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.logo {
+  width: 100%;
+}
+
+.icon__wrapper {
+  font-weight: bold;
+  color: #939496;
+}
+
+.icon-img {
+  margin-right: 10px;
+  display: grid;
+  place-content: center;
+  width: 24px;
+  height: 24px;
+}
+
+.cur-link {
+  width: 100%;
+  background-color: #ff6f02;
+  border-radius: 0.8rem;
+  color: #fff !important;
+}
+
+.arrow {
+  transform: rotate(90deg);
+}
+
+.header__wrapper {
+  border-bottom: 2px solid #e2e2e2;
+}
+
+.content-panel__wrapper {
+  width: 100%;
+  /* padding-left: 0 !important; */
+}
+
+.content-detail-nav__wrapper {
+  border-bottom: 2px solid #e2e2e2;
+  padding-bottom: 15px;
+}
+
+.content-detail-nav--link {
+  text-decoration: none;
+  color: #939496;
+  padding: 15px 20px 15px 20px;
+  font-weight: bold;
+}
+
+.content-detail-nav--link-current {
+  border-bottom: 3px solid #ff6f02 !important;
+  color: #ff6f02 !important;
+}
+
+.status-light {
+  width: 15px;
+  height: 15px;
+  background-color: green;
+  border-radius: 100%;
+}
+
+.address {
+  background-color: #f8f8f8;
+  border-radius: 1rem;
+}
+
+.address-info-link {
+  color: #ff6f02;
+}
+
+.address-icon {
+  width: 18px;
+}
+
+.big-thumbnail--img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.small-thumbnail {
+  max-width: 200px;
+  /* height: 200px; */
+  margin: 0 5px;
+}
+
+.small-thumbnail--img--current {
+  border-radius: 10px;
+  border: 5px #ff6f02 solid;
+  box-sizing: border-box;
+}
+
+.img-profile {
+  width: 50px;
+  height: 50px;
+  background-color: #ff6f02;
+  border-radius: 100%;
+  place-content: center;
+  color: #fff;
+  font-size: 18px;
+}
+
+@media only screen and (max-width: 900px) {
+  .header__wrapper {
+    flex-direction: column-reverse;
+    justify-content: inherit !important;
+    align-items: flex-start !important;
+  }
+
+  .account__wrapper {
+    padding-bottom: 20px;
+  }
+}
